@@ -1,0 +1,5022 @@
+{
+	"info": {
+		"_postman_id": "61276530-f400-42c5-a37c-55f12c7916ff",
+		"name": "LivMote API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Sign up",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "15b54919-c160-4dc2-9d95-8f35dafdc932",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"arel@sodalabs.co\",\n\t\"password\": \"0000\",\n\t\"first_name\": \"Test\",\n\t\"last_name\": \"One\",\n\t\"organization_name\": \"Test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/auth/signup",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verfiy email after user sign up",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "689c07ee-8dc3-4fa1-875b-d7981503bdf1",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyZWxAc29kYWxhYnMuY28iLCJpYXQiOjE2MDExMDk3NzksImV4cCI6MTYwMTcxNDU3OX0.puZYPu2X2AN19j95y_cdhMOZG5qsRK_pmfT36o8vCkw\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/auth/email-verification",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"auth",
+								"email-verification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resend verfication email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "113cf070-bc23-42ed-a90f-2d1011f2120f",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"arel@sodalabs.co\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/auth/email-resend",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"auth",
+								"email-resend"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "29abbb59-9e55-4df2-9095-c5ee52a4ac79",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyZWxAc29kYWxhYnMuY28iLCJpYXQiOjE2MDExMTEyMTksImV4cCI6MTYwMTExMTIyNH0.Dhpni7yWp_yz-3L30xFMs4m4JDvVF88_Co7lhCXmXT4\",\n\t\"password\": \"0000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/auth/reset-password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password for a logged in user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7769d555-6f5d-4255-8eaa-5201edb5ac0c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"password\": \"0000\",\n    \"old_password\": \"000000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/auth/me/password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"auth",
+								"me",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send a mail to reset password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "89a93e1f-4345-4707-b2f0-18c0dee1b3eb",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"arel@sodalabs.co\",\n    \"consumer\": \"web\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/auth/reset-password/mail",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"auth",
+								"reset-password",
+								"mail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c84aa5de-c93f-498a-92c5-19346c026049",
+								"exec": [
+									"var data = pm.response.json();",
+									"pm.environment.set('token', data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"arel@sodalabs.co\",\n\t\"password\": \"0000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "App Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6bf2cf37-1f22-4c4f-9ec5-534594b7d011",
+								"exec": [
+									"var data = pm.response.json();",
+									"pm.environment.set('token', data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"arel+2@sodalabs.co\",\n\t\"password\": \"0000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/auth/app-login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"auth",
+								"app-login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "My Profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/auth/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "My Profile Copy",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"agreed_eula\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/auth/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Soft delete account.",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/auth/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e6afc789-d734-4686-8782-423ec3c324ae",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "984bc240-be4a-406e-95c2-117b76d1e62a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Permission",
+			"item": [
+				{
+					"name": "Get Permission List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/permission",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"permission"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Permission",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"permission:delete\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/permission",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"permission"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Permission",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"permission:delete\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/permission/8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"permission",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Permission",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/permission/9",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"permission",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Staff",
+			"item": [
+				{
+					"name": "Get Staff List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/staff?page=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"staff"
+							],
+							"query": [
+								{
+									"key": "on_notification_list",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "no_paginate",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "S",
+									"disabled": true
+								},
+								{
+									"key": "badge_hash",
+									"value": "abca071dd1f8cca91efe2a3e0df16c7f93096c3f3d8f6fb29666da0595b3bc10",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Staff Survey List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/staff/survey?no_paginate=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"staff",
+								"survey"
+							],
+							"query": [
+								{
+									"key": "started_at",
+									"value": "2020-07-08 00:00:00",
+									"disabled": true
+								},
+								{
+									"key": "ended_at",
+									"value": "2020-07-28 23:59:59",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "dismissed",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "no_paginate",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "Arel Lin",
+									"disabled": true
+								},
+								{
+									"key": "sort_by",
+									"value": "created_at.desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Staff Survey",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/staff/survey/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"staff",
+								"survey",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Staff Survey List by Staff ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/staff/2/survey",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"staff",
+								"2",
+								"survey"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Today Staff Survey List by Staff ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/staff/1/survey/today",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"staff",
+								"1",
+								"survey",
+								"today"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Staff",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\": \"Dwi\",\n\t\"last_name\": \"Marlow\",\n\t\"role_id\": 2,\n    \"phone_country_id\": 1,\n\t\"phone_number\": \"1234567\",\n\t\"email\": \"kevin@sodalabs.co\",\n\t\"on_notification_list\": false,\n\t\"sms_enabled\": false,\n\t\"email_enabled\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/staff/337",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"staff",
+								"337"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Staff",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/staff/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"staff",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Staff",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/staff/313",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"staff",
+								"313"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Email QR Code to Staff",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"arel@sodalabs.co\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/staff/2/qrcode/mail",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"staff",
+								"2",
+								"qrcode",
+								"mail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign up Staff",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d6d9a656-3910-4620-b342-0aaa53ba1b40",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"role_id\": 2,\n\t\"email\": \"arel+so1@sodalabs.co\",\n\t\"first_name\": \"Arel\",\n\t\"last_name\": \"Lin\",\n    \"phone_country_id\": 2,\n    \"phone_number\": \"919821629\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/staff/signup",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"staff",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk add staff",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "071c5899-4978-458b-a26a-09af9a0784e9",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"role\": \"Org Admin\",\n        \"email\": \"arel+so2@sodalabs.co\",\n        \"first_name\": \"Arel\",\n        \"last_name\": \"Lin\",\n        \"phone_iso_code\": \"TW\",\n        \"phone_number\": \"0919821629\"\n    },\n    {\n        \"role\": \"User\",\n        \"email\": \"arel+so3@sodalabs.co\",\n        \"first_name\": \"Arel\",\n        \"last_name\": \"Lin\",\n        \"phone_iso_code\": \"TW\",\n        \"phone_number\": \"0919821629\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/staff/bulk",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"staff",
+								"bulk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "For device to add a badge for staff",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ce5f5f6e-9a3c-44ce-818e-80b04f5febc0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"badge_hash\": \"cdef\",\n    \"type\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/staff/313/badge",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"staff",
+								"313",
+								"badge"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete all staff survey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4cdf6442-0ffa-4a3e-bc9a-e57255518503",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/staff/survey",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"staff",
+								"survey"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete staff survey by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c1a40558-b81a-40f2-8181-51e5aa81b0a8",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/staff/survey/8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"staff",
+								"survey",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update staff survey by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5ef5ab00-65ba-483b-8643-f5d6363977f3",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/staff/survey/8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"staff",
+								"survey",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Staff survey statistics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/staff/survey/stats",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"staff",
+								"survey",
+								"stats"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f357850a-5443-4d2d-b7f1-b7ba2b98dd1d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "89e6ac76-d087-4982-a0da-a45f27f62955",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Device",
+			"item": [
+				{
+					"name": "Get Device List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/device",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"device"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Device Firmware information",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/device/firmware?beta=true&version=0.1.11.0&token=tXvenWD2U8rtJZx6fDwujs8aqVWUQbBqEEPk79q9WgvEEyBH4hozApkra36xEiw7PKTrwjCzAtMqBtyXDpMuyf8e8q2Fx7ENoYvqmyadMCoNsAme2xsYrsKxPokzeYzj",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"device",
+								"firmware"
+							],
+							"query": [
+								{
+									"key": "beta",
+									"value": "true"
+								},
+								{
+									"key": "version",
+									"value": "0.1.11.0"
+								},
+								{
+									"key": "token",
+									"value": "tXvenWD2U8rtJZx6fDwujs8aqVWUQbBqEEPk79q9WgvEEyBH4hozApkra36xEiw7PKTrwjCzAtMqBtyXDpMuyf8e8q2Fx7ENoYvqmyadMCoNsAme2xsYrsKxPokzeYzj"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Latest Device Firmware information",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/device/firmware/latest?token=tXvenWD2U8rtJZx6fDwujs8aqVWUQbBqEEPk79q9WgvEEyBH4hozApkra36xEiw7PKTrwjCzAtMqBtyXDpMuyf8e8q2Fx7ENoYvqmyadMCoNsAme2xsYrsKxPokzeYzj&beta=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"device",
+								"firmware",
+								"latest"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "tXvenWD2U8rtJZx6fDwujs8aqVWUQbBqEEPk79q9WgvEEyBH4hozApkra36xEiw7PKTrwjCzAtMqBtyXDpMuyf8e8q2Fx7ENoYvqmyadMCoNsAme2xsYrsKxPokzeYzj"
+								},
+								{
+									"key": "beta",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Device Latest Network Config",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/device/latest-network-config",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"device",
+								"latest-network-config"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Device itself",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/device/self",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"device",
+								"self"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Device by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/device/140",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"device",
+								"140"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Device",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Manual Input\",\n\t\"license_code\": \"fDALFF2wMCfKNQyw4TSxpK\",\n\t\"network_type\": 0,\n\t\"network_security_type\": 0,\n    \"type\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/device",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"device"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activate a device",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"serial_number\": \"arel-loc-device\",\n\t\"registration_key\": \"uDf7yppCrX35Q6ST844B2k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/device/266/activate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"device",
+								"266",
+								"activate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Device",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/device/138",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"device",
+								"138"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Device",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Loc Device II\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/device/140",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"device",
+								"140"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Device Heartbeat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ip_address\": \"192.168.0.0\",\n    \"firmware_version\": \"0.0.0.1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/device/29/heartbeat",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"device",
+								"29",
+								"heartbeat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Email Devcice QR Code",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"arel@sodalabs.co\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/device/144/qrcode/mail",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"device",
+								"144",
+								"qrcode",
+								"mail"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8edd3852-ecd6-4267-b10b-b58879d89977",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ff79d90b-caaa-4ab3-9dc0-2ede18573be2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Compliance Policy",
+			"item": [
+				{
+					"name": "Get Compliance Policy List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/compliance-policy",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"compliance-policy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Current Compliance Policy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/compliance-policy/current",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"compliance-policy",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Upcoming Compliance Policy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/compliance-policy/upcoming",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"compliance-policy",
+								"upcoming"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Compliance Policy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"screen_quantity\": 3,\n\t\"schedule\": 1,\n\t\"started_at\": \"2020-05-29 12:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/compliance-policy",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"compliance-policy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Compliance Policy",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"screen_quantity\": 3,\n\t\"schedule\": 1,\n\t\"started_at\": \"2020-05-29 08:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/compliance-policy/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"compliance-policy",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Compliance Policy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/compliance-policy/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"compliance-policy",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Screen",
+			"item": [
+				{
+					"name": "Get Screen List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/screen?no_paginate=1&sort_by=created_at.desc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"screen"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Jesse Sum",
+									"disabled": true
+								},
+								{
+									"key": "no_paginate",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "sort_by",
+									"value": "created_at.desc"
+								},
+								{
+									"key": "started_at",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Screen by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/screen/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"screen",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Screen statistics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/screen/stats",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"screen",
+								"stats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Screen",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_id\": 2,\n\t\"temperature\": 38.3,\n\t\"risky\": true,\n\t\"scanned_at\": \"2020-07-01 11:22:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/screen",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"screen"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Screen",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"scanned_at\": \"2020-09-23 10:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/screen/2117",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"screen",
+								"2117"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Screen",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/screen/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"screen",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete all screen in organization",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/screen",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"screen"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5f3a2385-c8a4-4020-a1f2-b2b1a8a955ae",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "48ab53a7-2bbf-4b2b-bc3e-bc5ec420d101",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Firmware",
+			"item": [
+				{
+					"name": "Get Firmware List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/firmware?beta=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"firmware"
+							],
+							"query": [
+								{
+									"key": "beta",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Latest Firmware",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/firmware/latest?token=tXvenWD2U8rtJZx6fDwujs8aqVWUQbBqEEPk79q9WgvEEyBH4hozApkra36xEiw7PKTrwjCzAtMqBtyXDpMuyf8e8q2Fx7ENoYvqmyadMCoNsAme2xsYrsKxPokzeYzj&beta=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"firmware",
+								"latest"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "tXvenWD2U8rtJZx6fDwujs8aqVWUQbBqEEPk79q9WgvEEyBH4hozApkra36xEiw7PKTrwjCzAtMqBtyXDpMuyf8e8q2Fx7ENoYvqmyadMCoNsAme2xsYrsKxPokzeYzj"
+								},
+								{
+									"key": "beta",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Firmware",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"version\": \"v0.0.0.1\",\n    \"change_log\": \"Initial Fake Release\",\n    \"file_hash\": \"cc844cac4b2310321d0fd1f9945520e2c08a95cefd6b828d78cdf306b4990b3a\",\n    \"file_download_url\": \"http://ipv4.download.thinkbroadband.com/100MB.zip\",\n    \"file_update_options\": \"--some-extra-flag\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/firmware",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"firmware"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Firmware",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"change_log\": \"Change to Initial Fake Release\",\n    \"file_update_options\": \"--some-extra-flag --another-flag\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/firmware/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"firmware",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Firmware",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/firmware/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"firmware",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Screen",
+					"item": [
+						{
+							"name": "Get Screen List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/screen?started_at=2020-11-01 03:00:01&ended_at=2020-11-01 07:00:01",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"screen"
+									],
+									"query": [
+										{
+											"key": "no_paginate",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "location_name",
+											"value": "Hey House",
+											"disabled": true
+										},
+										{
+											"key": "device_name",
+											"value": "Henry",
+											"disabled": true
+										},
+										{
+											"key": "started_at",
+											"value": "2020-11-01 03:00:01"
+										},
+										{
+											"key": "ended_at",
+											"value": "2020-11-01 07:00:01"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Screen",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"device_id\": 146,\n\t\"user_id\": 328,\n\t\"temperature\": 39.3,\n\t\"risky\": true,\n\t\"scanned_at\": \"2020-06-10 04:00:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/screen",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"screen"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Screen",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"temperature\": 40.1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/screen/14",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"screen",
+										"14"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Screen",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/screen/15",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"screen",
+										"15"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "74776560-3614-44b9-b643-6e9203494ef8",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "0f91529f-699b-4540-8e67-ee83d9338fe9",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Survey Template",
+					"item": [
+						{
+							"name": "Create a survey template",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Arel Happiness Survey III\",\n    \"survey_questions\": [\n        {\n            \"order\": 1,\n            \"text\": \"Are you Happy?\",\n            \"type\": 1,\n            \"validator\": {\n                \"eq\": \"yes\"\n            }\n        },\n        {\n            \"order\": 2,\n            \"text\": \"Does below items make you happy?\",\n            \"type\": 1,\n            \"options\": [\n                \"Food\",\n                \"Drink\",\n                \"Money\"\n            ],\n            \"validator\": {\n                \"eq\": \"yes\"\n            }\n        },\n        {\n            \"order\": 3,\n            \"text\": \"Score your happiness.\",\n            \"type\": 2,\n            \"validator\": {\n                \"range\": [0, 100]\n            }\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/survey-template",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"survey-template"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Soft Delete a survey template",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Arel Happiness Survey III\",\n    \"survey_questions\": [\n        {\n            \"order\": 1,\n            \"text\": \"Are you Happy?\",\n            \"type\": 1,\n            \"validator\": {\n                \"eq\": \"yes\"\n            }\n        },\n        {\n            \"order\": 2,\n            \"text\": \"Does below items make you happy?\",\n            \"type\": 1,\n            \"options\": [\n                \"Food\",\n                \"Drink\",\n                \"Money\"\n            ],\n            \"validator\": {\n                \"eq\": \"yes\"\n            }\n        },\n        {\n            \"order\": 3,\n            \"text\": \"Score your happiness.\",\n            \"type\": 2,\n            \"validator\": {\n                \"range\": [0, 100]\n            }\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/survey-template/12/soft-delete",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"survey-template",
+										"12",
+										"soft-delete"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Perminent delete a survey template",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Arel Happiness Survey III\",\n    \"survey_questions\": [\n        {\n            \"order\": 1,\n            \"text\": \"Are you Happy?\",\n            \"type\": 1,\n            \"validator\": {\n                \"eq\": \"yes\"\n            }\n        },\n        {\n            \"order\": 2,\n            \"text\": \"Does below items make you happy?\",\n            \"type\": 1,\n            \"options\": [\n                \"Food\",\n                \"Drink\",\n                \"Money\"\n            ],\n            \"validator\": {\n                \"eq\": \"yes\"\n            }\n        },\n        {\n            \"order\": 3,\n            \"text\": \"Score your happiness.\",\n            \"type\": 2,\n            \"validator\": {\n                \"range\": [0, 100]\n            }\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/survey-template/12",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"survey-template",
+										"12"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET survey template list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/survey-template",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"survey-template"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET a survey template by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/survey-template/13",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"survey-template",
+										"13"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Survey Question",
+					"item": [
+						{
+							"name": "Create a survey question",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"survey_template_id\": 1,\n    \"order\": 3,\n    \"text\": \"Have you or a member of your household tested positive for COVID-19?\",\n    \"type\": 1,\n    \"validator\": {\n        \"eq\": 0\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/survey-question",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"survey-question"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2116f867-f6ff-4ff3-9d34-1c356450e4fc",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "d1cd98a5-ff63-4f5d-9b98-b8a646dd4a77",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Survey",
+					"item": [
+						{
+							"name": "Create a survey template",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 1,\n    \"survey_template_id\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/survey",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"survey"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Send Survey Reminder to every org every user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/survey/reminder/mail",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"survey",
+										"reminder",
+										"mail"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "898d47da-54f4-441a-95e1-fe406ea1f70b",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ad47705-37f9-4a7e-94f7-433efc55d21d",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Organization Survey Template",
+					"item": [
+						{
+							"name": "Create an organization survey template",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/org/1/survey-template",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"org",
+										"1",
+										"survey-template"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set available templates for an organization",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"survey_template_ids\": [1, 5, 6]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/org/1/survey-template",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"org",
+										"1",
+										"survey-template"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Device",
+					"item": [
+						{
+							"name": "Get Device List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/device?location_id=6",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"device"
+									],
+									"query": [
+										{
+											"key": "location_id",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Device by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/device/139",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"device",
+										"139"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Device",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Admin Device\",\n    \"location_id\": 5,\n\t\"license_code\": \"fDALFF2wMCfKNQyw4TSxpK\",\n\t\"network_type\": 1,\n\t\"network_security_type\": 1,\n\t\"network_username\": \"kevin\",\n\t\"network_password\": \"0000\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/device",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"device"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Device",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Admin Device III\",\n    \"location_id\": 5,\n\t\"license_code\": \"fDALFF2wMCfKNQyw4TSxpK\",\n\t\"network_type\": 1,\n\t\"network_security_type\": 1,\n\t\"network_username\": \"kevin\",\n\t\"network_password\": \"0000\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/device/140",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"device",
+										"140"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Device",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/device/140",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"device",
+										"140"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Soft Delete Device",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/device/140/soft-delete",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"device",
+										"140",
+										"soft-delete"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0cc467a8-67ec-45b5-a301-ce1130c1ec1c",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "49473d92-9b8d-4a60-8fd7-34aafb34ae39",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "License",
+					"item": [
+						{
+							"name": "Get Admin License List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/license",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"license"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Admin License",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type\": 0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/license",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"license"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Admin License",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": 1,\n    \"expired_at\": \"2021-08-11 00:00:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/license/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"license",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Admin License",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/license/17",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"license",
+										"17"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Badge",
+					"item": [
+						{
+							"name": "Get Admin Badge List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/badge",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"badge"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Admin Badge",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 1,\n    \"type\": 0,\n    \"hash\": \"abcd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/badge",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"badge"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Admin Badge",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 1,\n    \"type\": 0,\n    \"hash\": \"abcd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/badge/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"badge",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Admin Badge",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/badge/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"badge",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Get Admin User List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/user?location_id=6",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"user"
+									],
+									"query": [
+										{
+											"key": "first_name",
+											"value": "Arel",
+											"disabled": true
+										},
+										{
+											"key": "deleted",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "location_id",
+											"value": "6"
+										},
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Admin User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"location_id\": 2,\n    \"role_id\": 2,\n    \"email\": \"arel+36@sodalabs.co\",\n    \"password\": \"0000\",\n    \"first_name\": \"Arel\",\n    \"last_name\": \"AdminSeven\",\n    \"phone_country_id\": 2,\n    \"phone_number\": \"919821629\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Admin User",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"location_id\": 6,\n    \"role_id\": 3,\n    \"email\": \"arel+34@sodalabs.co\",\n    \"password\": \"0000\",\n    \"first_name\": \"Arel\",\n    \"last_name\": \"Barel\",\n    \"phone_country_id\": 1,\n    \"phone_number\": \"7654321\",\n    \"email_verified\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/user/337",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"user",
+										"337"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Admin User",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/user/56",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"user",
+										"56"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Soft Delete Admin User",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/user/314/soft-delete",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"user",
+										"314",
+										"soft-delete"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Organization",
+					"item": [
+						{
+							"name": "Get Organization List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/organization",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"organization"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find an Organization by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/organization/5",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"organization",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Organization",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"No User Org\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/organization",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"organization"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reset organization guest survey url",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/organization/1/guest-survey-url",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"organization",
+										"1",
+										"guest-survey-url"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Organization",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"current_survey_template_id\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/organization/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"organization",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Organization",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/organization/4",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"organization",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Soft delete organization",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/organization/4/soft-delete",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"organization",
+										"4",
+										"soft-delete"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9ee3f38c-69fc-46f0-99dc-42dca1f2bc1a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "168d7845-8028-4d92-bc93-337cd581f7bd",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Location",
+					"item": [
+						{
+							"name": "Get locations",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/location?organization_id=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"location"
+									],
+									"query": [
+										{
+											"key": "deleted",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "organization_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create location",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Test Warehouse\",\n    \"organization_id\": 2,\n    \"street\": \"Henry\",\n    \"city\": \"Hentai\",\n    \"state\": \"Taipei\",\n    \"zipcode\": 108,\n    \"country\": \"Taiwan\",\n    \"latitude\": 25,\n    \"longitude\": 122,\n    \"phone_country_id\": 2,\n    \"phone_number\": \"988162521\",\n    \"timezone\": \"Asia/Taipei\",\n    \"reminder_weekdays\": 0,\n    \"reminder_time\": \"08:00:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/location",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"location"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get location",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/location/9",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"location",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update location",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"phone_country_id\": 1,\n    \"reminder_weekdays\": [false, false, false, false, false ,false, false],\n    \"reminder_time\": \"10:00:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/admin/location/2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"location",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update location guest survey url",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/location/1/guest-survey-url",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"location",
+										"1",
+										"guest-survey-url"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete location",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/location/10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"location",
+										"10"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Soft Delete Location",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/admin/location/10/soft-delete",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"admin",
+										"location",
+										"10",
+										"soft-delete"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Survey",
+			"item": [
+				{
+					"name": "Create a survey",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"payload\": [\n        {\n            \"survey_question_id\": 1,\n            \"answer\": \"yes\"\n        },\n        {\n            \"survey_question_id\": 2,\n            \"answer\": \"no\"\n        },\n        {\n            \"survey_question_id\": 3,\n            \"answer\": \"no\"\n        },\n        {\n            \"survey_question_id\": 4,\n            \"answer\": 102\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/survey",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"survey"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a survey note",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"This person is nice man.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/survey/1008/survey-note",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"survey",
+								"1008",
+								"survey-note"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all survey notes under a survey",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/survey/1891/survey-note",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"survey",
+								"1891",
+								"survey-note"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch a survey",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/survey/974",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"survey",
+								"974"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List today's survey",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/survey/today?page=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"survey",
+								"today"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Survey by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/survey/975",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"survey",
+								"975"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "864583a9-3e89-404b-b128-db0a808c7ed6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "c92fb5fc-7aee-4dbb-a629-45164169d31f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Survey Template",
+			"item": [
+				{
+					"name": "Get current template",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/survey-template/current",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"survey-template",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get template list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/survey-template",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"survey-template"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "94dd283e-5470-4b28-855c-bb34a00a566d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "9dadf996-f3b6-47c3-8cf7-7c699efa7a59",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Survey Alert",
+			"item": [
+				{
+					"name": "Get survey alert list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/survey-alert",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"survey-alert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create survey alarm",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"survey_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/survey-alert",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"survey-alert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update survey alarm",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dismissed\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/survey-alert/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"survey-alert",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "48fbb767-04ab-4c40-abd2-c727a5f09f0d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "aa757fb6-aa67-472f-bc5f-f776475efe58",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Config",
+			"item": [
+				{
+					"name": "Update location config",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"phone_country_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/config",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"config"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get location level config",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/config",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"config"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "Get report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/report?date=2020-07-22",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"report"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2020-07-22"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "License",
+			"item": [
+				{
+					"name": "Check License",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"3gja1Zkh12td7cTH6HTJwT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/license/check",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"license",
+								"check"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Survey Note",
+			"item": [
+				{
+					"name": "Delete a survey note",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/survey-note/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"survey-note",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Guest",
+			"item": [
+				{
+					"name": "Survey Template",
+					"item": [],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Survey",
+					"item": [
+						{
+							"name": "Create a guest survey",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcmdhbml6YXRpb25faWQiOjIsImxvY2F0aW9uX2lkIjo3LCJpYXQiOjE2MDAzNTYyNzh9.5i-_fT5tXEn_39YfLPtIVNq03oSV1tuoEsTqgVU4RMk\",\n    \"user\": {\n        \"first_name\": \"Happy\",\n        \"last_name\": \"Arel\",\n        \"country_code\": \"+886\",\n        \"area_code\": \"919\",\n        \"phone_number\": \"821629\"\n    },\n    \"survey\": [\n        {\n            \"survey_question_id\": 1,\n            \"answer\": \"yes\"\n        },\n        {\n            \"survey_question_id\": 2,\n            \"answer\": \"no\"\n        },\n        {\n            \"survey_question_id\": 3,\n            \"answer\": \"no\"\n        },\n        {\n            \"survey_question_id\": 4,\n            \"answer\": 102\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/guest/survey",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"guest",
+										"survey"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Guest Survey by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/guest/survey/1000?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozMjEsInN1cnZleV9pZCI6MTAwMCwiaWF0IjoxNjAwOTYwMzU3LCJleHAiOjE2MDEwNDY3NTd9.Z3Z9CyguA-B78OsEnGh077PSER58VPLGmst6Th3Ek30",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"guest",
+										"survey",
+										"1000"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozMjEsInN1cnZleV9pZCI6MTAwMCwiaWF0IjoxNjAwOTYwMzU3LCJleHAiOjE2MDEwNDY3NTd9.Z3Z9CyguA-B78OsEnGh077PSER58VPLGmst6Th3Ek30"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Manual Screen",
+					"item": [
+						{
+							"name": "Create a guest screen manually",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozMjcsInN1cnZleV9pZCI6MTAwNywiaWF0IjoxNjAxNDM0Mjg1LCJleHAiOjE2MDE1MjA2ODV9.t5y0PSFU3D5FI_WZEIPEcz8vPOy4Nxqhyok-AG_UmoQ\",\n    \"temperature\": 37.3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/guest/manual-screen",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"guest",
+										"manual-screen"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get guest qrcode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/guest/321/qrcode?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozMjQsInN1cnZleV9pZCI6MTAwNCwiaWF0IjoxNjAxMTEwNzc3LCJleHAiOjE2MDExMTA3ODJ9.WrQ0hUKRBGC0rp4NmjIXtit2MGcoQH34subVxRbDxrI",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"guest",
+								"321",
+								"qrcode"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozMjQsInN1cnZleV9pZCI6MTAwNCwiaWF0IjoxNjAxMTEwNzc3LCJleHAiOjE2MDExMTA3ODJ9.WrQ0hUKRBGC0rp4NmjIXtit2MGcoQH34subVxRbDxrI"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Org",
+			"item": [
+				{
+					"name": "Location",
+					"item": [
+						{
+							"name": "Get organization locations",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/org/location",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"location"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create organization location",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Nine House\",\n    \"street\": \"St. Dudi\",\n    \"city\": \"Perry\",\n    \"state\": \"Los Angeles\",\n    \"zipcode\": 420,\n    \"country\": \"US\",\n    \"latitude\": 25,\n    \"longitude\": 122,\n    \"phone_country_id\": 1,\n    \"phone_number\": \"4151234567\",\n    \"timezone\": \"America/Los_Angeles\",\n    \"reminder_weekdays\": 0,\n    \"reminder_time\": \"08:00:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/org/location",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"location"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get organization location",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/org/location/2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"location",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update organization location",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Good\",\n    \"street\": \"St. Da Ming\",\n    \"city\": \"Fengyuan\",\n    \"state\": \"Taipei\",\n    \"zipcode\": 420,\n    \"country\": \"Taiwan\",\n    \"latitude\": 25,\n    \"longitude\": 122,\n    \"phone_country_id\": 2,\n    \"phone_number\": \"919821629\",\n    \"timezone\": \"Asia/Taipei\",\n    \"reminder_weekdays\": [true, false, false, false,false, false, false],\n    \"reminder_time\": \"08:00:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/org/location/13",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"location",
+										"13"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete organization location",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/org/location/8",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"location",
+										"8"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Get Org User List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/org/user?location_id=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"user"
+									],
+									"query": [
+										{
+											"key": "first_name",
+											"value": "Arel",
+											"disabled": true
+										},
+										{
+											"key": "deleted",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "location_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Org User",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/org/user/241",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"user",
+										"241"
+									],
+									"query": [
+										{
+											"key": "first_name",
+											"value": "Arel",
+											"disabled": true
+										},
+										{
+											"key": "deleted",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Org User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"location_id\": 2,\n    \"role_id\": 8,\n    \"email\": \"arel+38@sodalabs.co\",\n    \"first_name\": \"Arel\",\n    \"last_name\": \"26\",\n    \"phone_country_id\": 2,\n    \"phone_number\": \"1234567\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/org/user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Org User",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"phone_country_id\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/org/user/337",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"user",
+										"337"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Org User",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/org/user/309",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"user",
+										"309"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Bulk add staff",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9940404b-2f80-4a9f-a024-d222378ed450",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"role\": \"org_admin\",\n        \"location\": \"Nine House\",\n        \"email\": \"arel+so8@sodalabs.co\",\n        \"first_name\": \"Arel\",\n        \"last_name\": \"Lin\",\n        \"phone_iso_code\": \"TW\",\n        \"phone_number\": \"0919821629\"\n    },\n    {\n        \"role\": \"user\",\n        \"email\": \"arel+so9@sodalabs.co\",\n        \"first_name\": \"Arel\",\n        \"last_name\": \"Lin\",\n        \"phone_iso_code\": \"TW\",\n        \"phone_number\": \"0919821629\"\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/org/user/bulk",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"user",
+										"bulk"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "00bd3797-d610-4179-b66b-fbfd1b551c5c",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "6f1f4f67-2fbc-4a62-955b-94afd933465b",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Device",
+					"item": [
+						{
+							"name": "Get Org Device List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/org/device?location_id=5",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"device"
+									],
+									"query": [
+										{
+											"key": "first_name",
+											"value": "Arel",
+											"disabled": true
+										},
+										{
+											"key": "deleted",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "location_id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Org Device latest network config",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/org/device/latest-network-config?location_id=5",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"device",
+										"latest-network-config"
+									],
+									"query": [
+										{
+											"key": "first_name",
+											"value": "Arel",
+											"disabled": true
+										},
+										{
+											"key": "deleted",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "location_id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Org Device",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/org/device/139",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"device",
+										"139"
+									],
+									"query": [
+										{
+											"key": "first_name",
+											"value": "Arel",
+											"disabled": true
+										},
+										{
+											"key": "deleted",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Org Device",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Org Device\",\n    \"location_id\": 5,\n\t\"license_code\": \"fDALFF2wMCfKNQyw4TSxpK\",\n\t\"network_type\": 1,\n\t\"network_security_type\": 1,\n\t\"network_username\": \"kevin\",\n\t\"network_password\": \"0000\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/org/device",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"device"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Org Device",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Changed Org Device\",\n\t\"serial_number\": \"abcd-1324\",\n\t\"network_type\": 1,\n\t\"network_security_type\": 1,\n\t\"network_username\": \"kevin\",\n\t\"network_password\": \"0000\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/org/device/139",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"device",
+										"139"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Org Device",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/org/device/139",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"device",
+										"139"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "aed1227b-bdc3-4546-a7ef-629b088068f2",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "fedfe471-70b5-40e3-9104-c5488ddd616f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Survey Template",
+					"item": [
+						{
+							"name": "Get organization level survey template",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/org/survey-template/current?location_id=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"survey-template",
+										"current"
+									],
+									"query": [
+										{
+											"key": "location_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Org Get template list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/org/survey-template",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"survey-template"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Screen",
+					"item": [
+						{
+							"name": "Get Screen List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/org/screen?no_paginate=1&sort_by=created_at.desc&location_id=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"screen"
+									],
+									"query": [
+										{
+											"key": "no_paginate",
+											"value": "1"
+										},
+										{
+											"key": "sort_by",
+											"value": "created_at.desc"
+										},
+										{
+											"key": "location_id",
+											"value": "2"
+										},
+										{
+											"key": "name",
+											"value": "Jesse Sum",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Screen statistics",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/org/screen/stats?location_id=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"screen",
+										"stats"
+									],
+									"query": [
+										{
+											"key": "location_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8519476b-cbd5-41e7-858d-dfe8d1a5d2e9",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "1f7bfa5d-9735-4e2b-bd09-f1032dfcf843",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Survey",
+					"item": [
+						{
+							"name": "Get Org Survey List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/org/survey?no_paginate=1&location_id=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"survey"
+									],
+									"query": [
+										{
+											"key": "started_at",
+											"value": "2020-07-08 00:00:00",
+											"disabled": true
+										},
+										{
+											"key": "ended_at",
+											"value": "2020-07-28 23:59:59",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "dismissed",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "no_paginate",
+											"value": "1"
+										},
+										{
+											"key": "name",
+											"value": "Arel Lin",
+											"disabled": true
+										},
+										{
+											"key": "sort_by",
+											"value": "created_at.desc",
+											"disabled": true
+										},
+										{
+											"key": "location_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Org survey statistics",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/org/survey/stats",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"survey",
+										"stats"
+									],
+									"query": [
+										{
+											"key": "location_id",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b1e8236d-9842-4b86-8a01-2b9e48a5d21f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "a2be4ab8-b8a6-498c-955b-7d6e595c7e68",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Config",
+					"item": [
+						{
+							"name": "Update org config",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Soda Labs\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v0/org/config",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"config"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get org level config",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v0/org/config",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v0",
+										"org",
+										"config"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Country",
+			"item": [
+				{
+					"name": "Get Country List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/country",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"country"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Checkin Status",
+			"item": [
+				{
+					"name": "Get Checkin Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v0/checkin-status/today",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"checkin-status",
+								"today"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Mail",
+			"item": [
+				{
+					"name": "Send a welcome mail for staff",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4a3936d3-4b5c-4bf0-9a34-ab377371b91a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzQzLCJlbWFpbCI6ImFyZWwrbmV3c3RhZmZAc29kYWxhYnMuY28iLCJpYXQiOjE2MDQzMDY5MDAsImV4cCI6MTYwNDkxMTcwMH0._y9j3D3MIsQX34JQlPsLqompmrUbYj1KkB_xcgUvyKA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v0/mail/intro",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v0",
+								"mail",
+								"intro"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Random TEST API",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v0/auth/me",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v0",
+						"auth",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Random TEST API Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v0/loc/report",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v0",
+						"loc",
+						"report"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Admin Badge Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1,\n    \"type\": 0,\n    \"hash\": \"abcd\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v0/loc/report",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v0",
+						"loc",
+						"report"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJpYXQiOjE2MDY4MTQ2ODMsImV4cCI6MTYwNzQxOTQ4M30.SHcSV4W_IKlfYkugEYn2LTeGVJIungkefUxcNY_EOz8",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a623c916-6f86-4c03-ad1f-c6a9e72ac420",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "6fb0c67f-b776-45a9-abf5-bb8c764a4689",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
